@@ -47,7 +47,7 @@
     "cross-env": "^10.1.0",
     "nitro-cloudflare-dev": "^0.2.2",
     "simple-git-hooks": "^2.14.0",
-    "typescript": "^6.0.3",
+    "typescript": "^7.0.2",
     "vue-tsc": "^3",
     "wrangler": "^4.118.0"
   },
