@@ -1,0 +1,57 @@
+{
+  "name": "easytv-partner",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "description": "EasyTV partner console: dashboard, customers, rebates and withdrawals, bonus codes and promo materials for channel partners",
+  "license": "AGPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/easytv-ai/easytv-partner.git"
+  },
+  "homepage": "https://easytv.ai",
+  "bugs": {
+    "url": "https://github.com/easytv-ai/easytv-partner/issues"
+  },
+  "packageManager": "pnpm@11.1.1",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "dev": "nuxt dev --dotenv .env.development",
+    "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 nuxt build --dotenv .env.production",
+    "generate": "cross-env NODE_OPTIONS=--max-old-space-size=8192 nuxt generate --dotenv .env.production",
+    "preview": "pnpm run build && wrangler dev",
+    "start": "cross-env NODE_ENV=production nuxt start",
+    "deploy": "node scripts/deploy.mjs",
+    "cf-typegen": "wrangler types",
+    "typecheck": "nuxt typecheck",
+    "prepare": "simple-git-hooks",
+    "test": "nuxt typecheck"
+  },
+  "dependencies": {
+    "@nuxt/ui": "^4.9.0",
+    "@nuxtjs/i18n": "^10.4.0",
+    "echarts": "^6.1.0",
+    "nuxt": "4.4.8",
+    "qrcode": "^1.5.4",
+    "tailwindcss": "^4.3.2",
+    "vue": "^3.5.39",
+    "vue-echarts": "^8.0.1"
+  },
+  "devDependencies": {
+    "@iconify-json/lucide": "^1.2.149",
+    "@tailwindcss/typography": "^0.5.20",
+    "@types/node": "^26.1.0",
+    "@types/qrcode": "^1.5.5",
+    "cross-env": "^10.1.0",
+    "nitro-cloudflare-dev": "^0.2.2",
+    "simple-git-hooks": "^2.14.0",
+    "typescript": "^6.0.3",
+    "vue-tsc": "^3",
+    "wrangler": "^4.118.0"
+  },
+  "simple-git-hooks": {
+    "pre-push": "npm run typecheck"
+  }
+}
