@@ -17,5 +17,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   partner application / review status / profile editing.
 - Open-source governance files, Dockerfile, Cloudflare Workers deploy script and GitHub
   Actions (CI, Docker image, labels, stale, PR title check, Scorecard).
+- Dual licensing: AGPL-3.0 remains the public license; [COMMERCIAL-LICENSE.md](COMMERCIAL-LICENSE.md) (and [zh-CN](COMMERCIAL-LICENSE.zh-CN.md)) is the commercial template for closed-source / SaaS use.
 
 [Unreleased]: https://github.com/easytv-ai/easytv-partner/commits/main
