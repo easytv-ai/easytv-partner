@@ -46,20 +46,30 @@ Requires Node.js 22.5+ and [pnpm](https://pnpm.io) 10+ (`corepack enable` instal
 git clone https://github.com/easytv-ai/easytv-partner.git
 cd easytv-partner
 pnpm install
-cp .env.example .env.development   # point NUXT_PUBLIC_API_BASE_URL at your API
+cp .env.example .env.development
 pnpm dev                        # http://localhost:3010
 ```
+
+The example already points at the hosted API `https://tv-api.easyapi.com` and
+the creator studio `https://www.easytv.ai`, the same targets as
+[`easytv-web`](https://github.com/easytv-ai/easytv-web). `pnpm dev` works
+without copying an env file. For a local API, set `NUXT_PUBLIC_API_BASE_URL`
+to `http://localhost:8383` and the studio URL to `http://localhost:3005`.
 
 Sign in with any EasyTV account (SMS code or password). Accounts that are
 not partners yet land on the application page.
 
 ### Environment
 
+Development reads `.env.development`, production builds read
+`.env.production`. Missing files fall back to the defaults in
+`nuxt.config.ts`. Neither file is committed; `.env.example` is the reference.
+
 | Variable | Purpose |
 | --- | --- |
-| `NUXT_PUBLIC_SITE_NAME` | Site name in the title bar |
-| `NUXT_PUBLIC_API_BASE_URL` | `easytv-api` base URL |
-| `NUXT_PUBLIC_STUDIO_URL` | Creator studio URL ("Official site" link and referral-link fallback) |
+| `NUXT_PUBLIC_SITE_NAME` | Site name in the title bar (default `EasyTV`) |
+| `NUXT_PUBLIC_API_BASE_URL` | `easytv-api` base URL (default `https://tv-api.easyapi.com`) |
+| `NUXT_PUBLIC_STUDIO_URL` | Creator studio URL for the "Official site" link and referral-link fallback (default `https://www.easytv.ai`) |
 
 ## Build & Deploy
 

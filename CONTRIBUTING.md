@@ -47,7 +47,7 @@ still sign in with the built-in demo account to browse the UI.
 git clone https://github.com/easytv-ai/easytv-partner.git
 cd easytv-partner
 pnpm install
-cp .env.example .env.development   # point NUXT_PUBLIC_API_BASE_URL at your API
+cp .env.example .env.development   # hosted API and studio by default; override for local
 pnpm dev                        # http://localhost:3010
 ```
 

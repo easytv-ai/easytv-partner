@@ -37,19 +37,23 @@ EasyTV Partner 是自托管 EasyTV 的渠道伙伴（代理商）自助后台：
 git clone https://github.com/easytv-ai/easytv-partner.git
 cd easytv-partner
 pnpm install
-cp .env.example .env.development   # 把 NUXT_PUBLIC_API_BASE_URL 指向你的后端
+cp .env.example .env.development
 pnpm dev                        # http://localhost:3010
 ```
+
+示例已经对接线上接口 `https://tv-api.easyapi.com` 和创作台 `https://www.easytv.ai`，与 [`easytv-web`](https://github.com/easytv-ai/easytv-web) 相同。不复制 env 文件也能直接 `pnpm dev`。要对本地后端，把 `NUXT_PUBLIC_API_BASE_URL` 改成 `http://localhost:8383`，创作台改成 `http://localhost:3005`。
 
 用任意 EasyTV 账号登录（手机验证码或密码）。还不是伙伴的账号会落到入驻申请页。
 
 ### 环境变量
 
+开发读 `.env.development`，生产构建读 `.env.production`。文件不存在时用 `nuxt.config.ts` 里的默认值。两者都不入库，以 `.env.example` 为准。
+
 | 变量 | 用途 |
 | --- | --- |
-| `NUXT_PUBLIC_SITE_NAME` | 标题栏站点名 |
-| `NUXT_PUBLIC_API_BASE_URL` | `easytv-api` 地址 |
-| `NUXT_PUBLIC_STUDIO_URL` | 创作台地址（顶栏「官网」与推广链接兜底） |
+| `NUXT_PUBLIC_SITE_NAME` | 标题栏站点名（默认 `EasyTV`） |
+| `NUXT_PUBLIC_API_BASE_URL` | `easytv-api` 地址（默认 `https://tv-api.easyapi.com`） |
+| `NUXT_PUBLIC_STUDIO_URL` | 创作台地址，顶栏「官网」与推广链接兜底（默认 `https://www.easytv.ai`） |
 
 ## 构建与部署
 
