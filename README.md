@@ -50,11 +50,9 @@ cp .env.example .env.development
 pnpm dev                        # http://localhost:3010
 ```
 
-The example already points at the hosted API `https://tv-api.easyapi.com` and
-the creator studio `https://www.easytv.ai`, the same targets as
-[`easytv-web`](https://github.com/easytv-ai/easytv-web). `pnpm dev` works
-without copying an env file. For a local API, set `NUXT_PUBLIC_API_BASE_URL`
-to `http://localhost:8383` and the studio URL to `http://localhost:3005`.
+The API defaults to `http://localhost:8383`. `pnpm dev` talks to a local API
+without an env file. A public deploy must set `NUXT_PUBLIC_API_BASE_URL`.
+The studio link defaults to `http://localhost:3005`.
 
 Sign in with any EasyTV account (SMS code or password). Accounts that are
 not partners yet land on the application page.
@@ -68,8 +66,8 @@ Development reads `.env.development`, production builds read
 | Variable | Purpose |
 | --- | --- |
 | `NUXT_PUBLIC_SITE_NAME` | Site name in the title bar (default `EasyTV`) |
-| `NUXT_PUBLIC_API_BASE_URL` | `easytv-api` base URL (default `https://tv-api.easyapi.com`) |
-| `NUXT_PUBLIC_STUDIO_URL` | Creator studio URL for the "Official site" link and referral-link fallback (default `https://www.easytv.ai`) |
+| `NUXT_PUBLIC_API_BASE_URL` | `easytv-api` base URL (default `http://localhost:8383`) |
+| `NUXT_PUBLIC_STUDIO_URL` | Creator studio URL for the "Official site" link and referral-link fallback (default `http://localhost:3005`) |
 
 ## Build & Deploy
 
