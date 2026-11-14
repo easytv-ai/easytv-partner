@@ -77,8 +77,33 @@ pnpm build            # Cloudflare Workers preset (wrangler.jsonc)
 pnpm deploy           # build + wrangler deploy
 ```
 
-A `Dockerfile` (Node server preset) is included for self-hosters; every
-`NUXT_PUBLIC_*` value can be overridden at run time.
+### Docker
+
+A `Dockerfile` (Node server preset) is included for self-hosters, and a
+multi-arch image is published to GHCR. One image serves any deployment: the
+three variables above are read when the container starts.
+
+```bash
+docker run -d -p 3010:3010 \
+  -e NUXT_PUBLIC_API_BASE_URL=https://api.example.com \
+  -e NUXT_PUBLIC_STUDIO_URL=https://studio.example.com \
+  ghcr.io/easytv-ai/easytv-partner:latest
+```
+
+These are addresses the **browser** uses, so they must be reachable from the
+partner's machine (not a Docker-internal service name). URL values must start
+with `http://` or `https://`; anything else is ignored and the build-time
+default stays in effect.
+
+How it works: pages are prerendered, so the HTML carries build-time values.
+The Node server answers `/config.js` from its environment, every page loads
+that script before the app starts, and a plugin applies it to the public
+runtime config. On a plain static host (`pnpm generate`) there is no
+`/config.js`, and the values from the build are used.
+
+The `docker-compose.yml` in [`easytv-api`](https://github.com/easytv-ai/easytv-api)
+starts the whole stack, this console included, with
+`docker compose --profile full up -d`.
 
 ## Project layout
 

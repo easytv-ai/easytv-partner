@@ -19,4 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   Actions (CI, Docker image, labels, stale, PR title check, Scorecard).
 - Dual licensing: AGPL-3.0 remains the public license; [COMMERCIAL-LICENSE.md](COMMERCIAL-LICENSE.md) (and [zh-CN](COMMERCIAL-LICENSE.zh-CN.md)) is the commercial template for closed-source / SaaS use.
 
+### Fixed
+
+- Docker image: `NUXT_PUBLIC_API_BASE_URL`, `NUXT_PUBLIC_STUDIO_URL` and `NUXT_PUBLIC_SITE_NAME` set on the container now take effect. Prerendered pages used to keep the build-time values; they now load `/config.js`, which the server answers from its environment.
+
 [Unreleased]: https://github.com/easytv-ai/easytv-partner/commits/main
